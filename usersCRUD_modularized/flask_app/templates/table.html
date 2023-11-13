@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (All)</title>
+</head>
+<style>
+    table{
+        width: 400px;
+    }
+    th{
+        text-align:center;
+    }
+    table,th,td{
+        text-align:center;
+        border:2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <h2>All Users</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>
+                    {{user.id}}
+                </td>
+                <td>
+                    {{user.first_name}}
+                </td>
+                <td>
+                    {{user.last_name}}
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+                <td>
+                    {{user.created_at}}
+                </td>
+                <td>
+                    <a href="/edit/{{user.id}}">Edit</a>
+                    <a href="/show/{{user.id}}">Show</a>
+                    <a href="/delete/{{user.id}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+<a href="/form">Create a New User</a>
+</body>
+</html>
